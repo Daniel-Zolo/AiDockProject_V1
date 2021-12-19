@@ -1,25 +1,28 @@
-### DevOps assignment with Terraform/AWS tasks
+## Terraform code refactoring task
 
-This repository holds 2 different versions of Terraform files, one for the candidate to work on and one as a baseline for result evaluation. 
+### Please go over the resource manifest in `main.tf` and the variable declarations in `variables.tf` and try to improve code quality.
 
-```
-├── result
-│   ├── README.md
-│   ├── main.tf
-│   ├── providers.tf
-│   └── variables.tf
-└── test
-    ├── README.md
-    ├── main.tf
-    ├── providers.tf
-    └── variables.tf
-```
+You can use the Terraform commands `init` and `validate` directly without any provider credentials. Your environment should hold some AWS credentials if you also want to do a `plan` or `apply`. In this case, you will be provided with credentials to do `aws configure`.
 
-Requirements for candidate's test system:
+It is totally fine to use pseudo code or to describe your suggestions instead of creating real code, this is only about the basic understanding of a generic approach to manage infrastructure in code. You can also use the official documentation at https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 
-- IDE (PyCharm, IntelliJ or Visual Studio Code) or macOS/Linux shell with vim or other editor
-- Terraform command line (https://www.terraform.io/downloads)
-- AWS cli (https://aws.amazon.com/cli/)
-- AWS user credentials
+total time estimation: 30 - 60 minutes (depending on experience)
 
-Alternatively, the candidate could be provided with a system that has the AWS CloudShell prepared with access to github.com, in this case AWS credentials would not be required separately as they must already be used for starting CloudShell. 
+#### 1. reduce the total number of declared variables
+(hint: instead of using multiple declarations, all variables could be mapped into a single declaration)
+
+
+#### 2. replace duplicate resource definitions with `DRY`* code
+(hint: instead of using multiple resource definitions, multiple instances of the same resource type could be created by a single iteration)
+
+
+OPTIONAL:<p>
+#### 3. the `description` argument is only referencing one key-value pair of the `tags` variable map. try to add the second key-value pair to the argument by using formatting functions. The result could be in the format `"key=value, key=value"` or simply just `"value, value"`
+
+there are really a lot of ways, to do this. It is just important to think of possibilities to look up values.
+
+
+#### 4. would it be a problem, if we wanted to separate environments by using multiple AWS accounts? If yes, how would you deal with that?
+
+
+`*DRY` = don't repeat yourself, which just means that code should try to avoid duplications as far as possible
