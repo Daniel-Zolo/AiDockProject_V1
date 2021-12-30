@@ -15,14 +15,16 @@ total time estimation: 30 - 60 minutes (depending on experience)
 #### 2. replace duplicate resource definitions with `DRY`* code
 (hint: instead of using multiple resource definitions, multiple instances of the same resource type could be created by a single iteration)
 
+#### 3. tests
+You should preform a few sanity check, for exmaple: ip are in proper format, ranges do not overlap
 
 OPTIONAL:<p>
-#### 3. the `description` argument is only referencing one key-value pair of the `tags` variable map. try to add the second key-value pair to the argument by using formatting functions. The result could be in the format `"key=value, key=value"` or simply just `"value, value"`
+#### 4. the `description` argument is only referencing one key-value pair of the `tags` variable map. try to add the second key-value pair to the argument by using formatting functions. The result could be in the format `"key=value, key=value"` or simply just `"value, value"`
 
 there are really a lot of ways, to do this. It is just important to think of possibilities to look up values.
 
 
-#### 4. would it be a problem, if we wanted to separate environments by using multiple AWS accounts? If yes, how would you deal with that?
+#### 5. would it be a problem, if we wanted to separate environments by using multiple AWS accounts? If yes, how would you deal with that?
 
 
 `*DRY` = don't repeat yourself, which just means that code should try to avoid duplications as far as possible
