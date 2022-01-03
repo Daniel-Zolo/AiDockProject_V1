@@ -40,7 +40,7 @@ You were asked to make sure no application will consume too many resources like 
 Obviously, this setup does not scale well, as we only have a single instance per frontend and backend tier. How would you enable scaling up to multiple instances? (hint: a Kubernetes object type that is missing in this scenario might be helpful)
 
 #### 6. multi-environment
-We would like to deploy, run and maintain all services in different environments like `dev`, `test` and `production` where we can set parameters individually, depending on the requirements. What would you suggest to do to make this possible? (hint: we have the feeling that we need to do something about the variables here)
+We would like to deploy, run and maintain all services in different environments like `dev`, `test` and `production` where we can set parameters individually, depending on the requirements. What would you suggest to make this possible? (hint: we have the feeling that we need to do something about the variables here)
  
 
 *`DRY` = "don't repeat yourself", which basically means that code should try to avoid duplications whenever possible. It is the opposite of `WET` coding, which probably means something like "write everything twice", "we enjoy typing" or "waste everyone's time".
