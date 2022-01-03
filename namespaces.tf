@@ -7,7 +7,7 @@ resource "kubernetes_namespace" "app1" {
       owner = var.app1_labels.owner
     }
     annotations = {
-      "serviceClass"         = var.app1_annotations.serviceClass
+      "serviceClass"       = var.app1_annotations.serviceClass
       "loadBalancer/class" = true
     }
   }
@@ -22,7 +22,7 @@ resource "kubernetes_namespace" "app2" {
       owner = var.app2_labels.owner
     }
     annotations = {
-      "serviceClass"         = var.app2_annotations.serviceClass
+      "serviceClass"       = var.app2_annotations.serviceClass
       "loadBalancer/class" = true
     }
   }
@@ -37,7 +37,7 @@ resource "kubernetes_namespace" "app3" {
       owner = var.app3_labels.owner
     }
     annotations = {
-      "serviceClass"         = var.app3_annotations.serviceClass
+      "serviceClass"       = var.app3_annotations.serviceClass
       "loadBalancer/class" = false
     }
   }
