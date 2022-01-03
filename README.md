@@ -42,7 +42,7 @@ Obviously, this setup does not scale well, as we only have a single instance per
 #### 6. prepare for multi-environment
 We would like to deploy, run and maintain all services in different environments like `dev`, `test` and `production` where we can set parameters individually, depending on the requirements. What would you suggest to do to make this possible? (hint: we have the feeling that we need to do something about the variables here)
 
-### 7. add environment variable to service
+#### 7. add environment variable to service
 Let's assume, we want to add a specific variable with a random value for all services, it could be a new database password. How would you implement this? (hint: there are lots of possibilities, but can we do this using the existing setup with Kubernetes and Terraform only?)
 
 
