@@ -1,3 +1,8 @@
+#############################################################################
+### Deployment manifests for 3 applications (frontend, backend, database) ###
+### feel free to change anything and to implement any function or method  ###
+#############################################################################
+
 resource "kubernetes_deployment" "app1" {
   metadata {
     name      = var.app1_name

@@ -1,3 +1,8 @@
+#################################################################################
+### Resource manifests for 3 network policies (one per application namespace) ###
+### feel free to change anything and to implement any fix, function or method ###
+#################################################################################
+
 resource "kubernetes_network_policy" "app1" {
   metadata {
     name      = format("%s-acl", var.app1_name)

@@ -1,3 +1,8 @@
+#############################################################################
+### Resource manifests for 3 namespaces reusing the application naming    ###
+### feel free to change anything and to implement any function or method  ###
+#############################################################################
+
 resource "kubernetes_namespace" "app1" {
   metadata {
     name = var.app1_name

@@ -1,4 +1,4 @@
-## Terraform code refactoring task
+## Terraform and Kubernetes assignment for DevOps candidates
 
 ### Requirements:
 - any Kubernetes environment, e.g. 
@@ -17,12 +17,12 @@ You have been provided some Terraform manifests for Kubernetes resources that ar
 - 3 deployments (`stream-frontend, stream-backend, stream-database`)
 - 3 network policies (one per namespace)
 
-The provided Terraform code should work as-is, but is not using any method or function to avoid redundancy, so the main goal is to identify the potential for optimization and improvement. You are not expected to completely replace everything (you can, of course, if you prefer to). Instead, we would like to see your approach to the tasks in general.
+The provided Terraform code should work as-is, but is not using any method or function to avoid redundancy, so one goal is to identify the potential for optimization and improvement. You are not expected to completely replace everything (you can, of course, if you prefer to). Instead, we would like to see your approach to the tasks in general.
 
-### Please go over the resource manifests `deployments.tf, network.tf, namespaces.tf` and the variable declarations in `variables.tf` and try to improve code quality.
+### Please go over the resource manifests `deployments.tf, network.tf, namespaces.tf` and the variable declarations in `variables.tf` to get an understanding of the scenario.
 
 You can use the Terraform commands `init`, `validate` and `plan` directly without any provider configuration. If you want to `apply` the code, 
-It is totally fine to use pseudo code or to describe your suggestions instead of creating real code, this is only about the basic understanding of a general approach to manage infrastructure in code. You can also use the official Hashicorp documentation from the link above.
+It is totally fine to use pseudo code or to describe your suggestions instead of creating real code, this is only about the basic understanding of a general approach to manage infrastructure in code. You can also use the official Hashicorp documentation from the link above. Feel free to change whatever you like and implement different methods or functions however you feel appropriate.  
 
 #### 1. reduce variable count
 The total number of declared variables can be reduced (hint: instead of using multiple declarations, all variables could be mapped into a single declaration)
