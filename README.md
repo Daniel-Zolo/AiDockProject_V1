@@ -25,22 +25,22 @@ You can use the Terraform commands `init`, `validate` and `plan` directly withou
 It is totally fine to use pseudo code or to describe your suggestions instead of creating real code, this is only about the basic understanding of a general approach to manage infrastructure in code. You can also use the official Hashicorp documentation from the link above. Feel free to change whatever you like and implement different methods or functions however you feel appropriate.  
 
 #### 1. reduce variable count
-The total number of declared variables can be reduced (hint: instead of using multiple declarations, all variables could be mapped into a single declaration)
+The total number of declared variables has grown a bit. We think that it should be reduced to make it easier to maintain. How would you do this? (hint: instead of using multiple declarations, we might just have one)
 
 #### 2. remove duplicate code
 Whoever wrote this code did not follow the `DRY`* principle, most of the resource definitions are redundant. (hint: instead of using multiple resource definitions, multiple instances of the same resource type could be created by a single iteration).
 
-#### 3. network acl
-The backend developers have changed their framework and the exposed API service port. What change would allow the frontend service to access the new API? (hint: it is all about numbers )
+#### 3. change network acl
+The backend developers have changed their framework and the exposed API service. What change would allow the frontend service to access the new API? (hint: it is all about numbers )
 
-#### 4. resource management 
+#### 4. implement resource management 
 You were asked to make sure no application will consume too many resources like CPU and memory of the cluster. How would you implement this? (hint: Kubernetes provides a simple method to do this when dealing with pod definitions)
 
-#### 5. scaling
+#### 5. make scaling possible
 Obviously, this setup does not scale well, as we only have a single instance per frontend and backend tier. How would you enable scaling up to multiple instances? (hint: a Kubernetes object type that is missing in this scenario might be helpful)
 
-#### 6. multi-environment
-We would like to deploy, run and maintain all services in different environments like `dev`, `test` and `production` where we can set parameters individually, depending on the requirements. What would you suggest to make this possible? (hint: we have the feeling that we need to do something about the variables here)
+#### 6. prepare for multi-environment
+We would like to deploy, run and maintain all services in different environments like `dev`, `test` and `production` where we can set parameters individually, depending on the requirements. What would you suggest to do to make this possible? (hint: we have the feeling that we need to do something about the variables here)
  
 
 *`DRY` = "don't repeat yourself", which basically means that code should try to avoid duplications whenever possible. It is the opposite of `WET` coding, which probably means something like "write everything twice", "we enjoy typing" or "waste everyone's time".
