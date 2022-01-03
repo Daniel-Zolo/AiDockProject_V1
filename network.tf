@@ -1,6 +1,6 @@
 resource "kubernetes_network_policy" "app1" {
   metadata {
-    name      = format("acl-%s", var.app1_name)
+    name      = format("%s-acl", var.app1_name)
     namespace = var.app1_name
   }
   spec {
@@ -35,7 +35,7 @@ resource "kubernetes_network_policy" "app1" {
 
 resource "kubernetes_network_policy" "app2" {
   metadata {
-    name      = format("acl-%s", var.app2_name)
+    name      = format("%s-acl", var.app2_name)
     namespace = "stream-backend"
   }
   spec {
@@ -70,7 +70,7 @@ resource "kubernetes_network_policy" "app2" {
 
 resource "kubernetes_network_policy" "app3" {
   metadata {
-    name      = format("acl-%s", var.app3_name)
+    name      = format("%s-acl", var.app3_name)
     namespace = var.app3_name
   }
   spec {
