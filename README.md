@@ -31,7 +31,7 @@ The total number of declared variables has grown a bit. We think that it should 
 Whoever wrote this code did not follow the `DRY`* principle, most of the resource definitions are redundant. (hint: instead of using multiple resource definitions, multiple instances of the same resource type could be created by a single iteration).
 
 #### 3. change network acl
-The backend developers have changed their framework and the exposed API service. What change would allow the frontend service to access the new API? (hint: it is all about numbers )
+The backend developers have changed their framework and the exposed API service port. What change would allow the frontend service to access the new API? (hint: it is all about numbers )
 
 #### 4. implement resource management 
 You were asked to make sure no application will consume too many resources like CPU and memory of the cluster. How would you implement this? (hint: Kubernetes provides a simple method to do this when dealing with pod definitions)
