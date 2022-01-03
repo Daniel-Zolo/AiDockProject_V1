@@ -21,7 +21,7 @@ The provided Terraform code should work as-is, but is not using any method or fu
 
 ### Please go over the resource manifests `deployments.tf, network.tf, namespaces.tf` and the variable declarations in `variables.tf` to get an understanding of the scenario.
 
-You can use the Terraform commands `init`, `validate` and `plan` directly without any provider configuration. If you want to `apply` the code, 
+You can use the Terraform commands `init`, `validate` and `plan` directly without any provider configuration. If you want to `apply` the code, the `providers.tf` file is required and should have the correct value for the `config_path` attribute to point to your local `KUBECONFIG`.
 It is totally fine to use pseudo code or to describe your suggestions instead of creating real code, this is only about the basic understanding of a general approach to manage infrastructure in code. You can also use the official Hashicorp documentation from the link above. Feel free to change whatever you like and implement different methods or functions however you feel appropriate.  
 
 #### 1. reduce variable count
