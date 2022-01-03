@@ -1,77 +1,135 @@
-variable "vpn_endpoint_id_dev" {
+### namespace variables for app1
+
+variable "app1_name" {
   type        = string
-  description = "VPC ID for dev environment"
-  default     = "vpc-111111111"
+  description = "exposed app name"
+  default     = "stream-frontend"
 }
 
-variable "vpn_endpoint_id_staging" {
-  type        = string
-  description = "VPC ID for staging environment"
-  default     = "vpc-22222222"
-}
-
-variable "vpn_endpoint_id_production" {
-  type        = string
-  description = "VPC ID for production environment"
-  default     = "vpc-33333333"
-}
-
-variable "vpc_cidr_dev" {
-  type        = string
-  description = "CIDR for dev VPC"
-  default     = "10.64.0.0/16"
-}
-
-variable "vpc_cidr_staging" {
-  type        = string
-  description = "CIDR for staging VPC"
-  default     = "10.65.0.0/16"
-}
-
-variable "vpc_cidr_production" {
-  type        = string
-  description = "CIDR for production VPC"
-  default     = "10.66.0.0/16"
-}
-
-variable "subnet_id_dev" {
-  type        = string
-  description = "subnet ID for SSO VPN dev"
-  default     = "dev-111"
-}
-
-variable "subnet_id_staging" {
-  type        = string
-  description = "subnet ID for SSO VPN staging"
-  default     = "staging-222"
-}
-
-variable "subnet_id_production" {
-  type        = string
-  description = "subnet ID for SSO VPN production"
-  default     = "production-333"
-}
-
-variable "vpn_tags_dev" {
-  type = map(string)
+variable "app1_labels" {
+  type        = map(string)
+  description = "labels for namespace app1"
   default = {
-    Name    = "vpn-vpc-dev"
-    billing = "R&D"
+    "name"  = "stream-frontend"
+    "tier"  = "web"
+    "owner" = "product"
   }
 }
 
-variable "vpn_tags_staging" {
-  type = map(string)
+variable "app1_annotations" {
+  type        = map(string)
+  description = "annotations for namespace app1"
   default = {
-    Name    = "vpn-vpc-staging"
-    billing = "Product"
+    "serviceClass"       = "web-frontend"
+    "loadBalancer/class" = "external"
   }
 }
 
-variable "vpn_tags_production" {
-  type = map(string)
+### namespace variables for app2
+
+variable "app2_name" {
+  type        = string
+  description = "exposed app name"
+  default     = "stream-backend"
+}
+
+variable "app2_labels" {
+  type        = map(string)
+  description = "labels for namespace app2"
   default = {
-    Name    = "vpn-vpc-production"
-    billing = "Operations"
+    "name"  = "stream-backend"
+    "tier"  = "api"
+    "owner" = "product"
+  }
+}
+
+variable "app2_annotations" {
+  type        = map(string)
+  description = "annotations for namespace app2"
+  default = {
+    "serviceClass"       = "web-backend"
+    "loadBalancer/class" = "internal"
+  }
+}
+
+### namespace variables for app3
+
+variable "app3_name" {
+  type        = string
+  description = "exposed app name"
+  default     = "stream-database"
+}
+
+variable "app3_labels" {
+  type        = map(string)
+  description = "labels for namespace app3"
+  default = {
+    "name"  = "stream-database"
+    "tier"  = "shared"
+    "owner" = "product"
+  }
+}
+
+variable "app3_annotations" {
+  type        = map(string)
+  description = "annotations for namespace app3"
+  default = {
+    "serviceClass"       = "database"
+    "loadBalancer/class" = "disabled"
+  }
+}
+
+variable "acl_frontend" {
+  description = "access allowed from this source"
+  type = map(object({
+    ingress  = string
+    egress   = string
+    port     = string
+    protocol = string
+  }))
+  default = {
+    frontend = {
+      ingress  = "stream-backend"
+      egress   = "0.0.0.0/0"
+      port     = "80"
+      protocol = "TCP"
+    }
+  }
+}
+
+variable "acl_backend" {
+  description = "access allowed from this source"
+  type = map(object({
+    ingress = string
+    egress  = string
+    port     = string
+    protocol = string
+  }))
+  default = {
+    backend = {
+      ingress  = "stream-frontend"
+      egress   = "172.17.0.0/24"
+      port     = "80"
+      protocol = "TCP"
+
+    }
+  }
+}
+
+variable "acl_database" {
+  description = "access allowed from this source"
+  type = map(object({
+    ingress = string
+    egress  = string
+    port     = string
+    protocol = string
+  }))
+  default = {
+    database = {
+      ingress  = "stream-backend"
+      egress   = "172.17.0.0/24"
+      port     = "27017"
+      protocol = "TCP"
+    }
   }
 }
