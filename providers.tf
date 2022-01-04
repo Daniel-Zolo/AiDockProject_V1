@@ -1,4 +1,3 @@
-provider "aws" {
-  #profile = "dev"
-  region  = "eu-central-1"
+provider "kubernetes" {
+  config_path = "~/.kube/config"
 }
