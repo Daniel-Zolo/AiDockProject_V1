@@ -45,6 +45,7 @@ We would like to deploy, run and maintain all services in different environments
 #### 7. add environment variable to service
 Let's assume, we want to add a specific variable with a random sensitive value for all services, it could be a new database password. How would you implement this? (hint: there are potentially lots of possibilities, but can we do this using the existing setup with Kubernetes and Terraform only?)
 
-### Please provide your solutions, comments and corrections in code (you can use language or framework of your preference if you don't want to do in Terraform HCL). Answers and solutions in text form can also be inserted into this README or a separate text file.
+
+#### Please provide your solutions, comments and corrections in code (you can use any language or framework of your preference if you don't want to use Terraform HCL). Answers and solutions in text form can also be inserted or added to this document or another text file.
 
 *`DRY` = "don't repeat yourself", which basically means that code should try to avoid duplications whenever possible. It is the opposite of `WET` coding, which probably means something like "write everything twice", "we enjoy typing" or "waste everyone's time".
