@@ -3,47 +3,18 @@
 ### feel free to change anything and to implement any function or method  ###
 #############################################################################
 
-resource "kubernetes_namespace" "app1" {
+resource "kubernetes_namespace" "app" {
+  for_each = var.apps
   metadata {
-    name = var.app1_name
+    name = each.value.appName
     labels = {
-      name  = var.app1_labels.name
-      tier  = var.app1_labels.tier
-      owner = var.app1_labels.owner
+      name  = each.value.labels.name
+      tier  = each.value.labels.tier
+      owner = each.value.labels.owner
     }
     annotations = {
-      "serviceClass"       = var.app1_annotations.serviceClass
-      "loadBalancer/class" = true
-    }
-  }
-}
-
-resource "kubernetes_namespace" "app2" {
-  metadata {
-    name = var.app2_name
-    labels = {
-      name  = var.app2_labels.name
-      tier  = var.app2_labels.tier
-      owner = var.app2_labels.owner
-    }
-    annotations = {
-      "serviceClass"       = var.app2_annotations.serviceClass
-      "loadBalancer/class" = true
-    }
-  }
-}
-
-resource "kubernetes_namespace" "app3" {
-  metadata {
-    name = var.app3_name
-    labels = {
-      name  = var.app3_labels.name
-      tier  = var.app3_labels.tier
-      owner = var.app3_labels.owner
-    }
-    annotations = {
-      "serviceClass"       = var.app3_annotations.serviceClass
-      "loadBalancer/class" = false
+      "serviceClass"           = each.value.annotations.serviceClass
+      "loadBalancer_and_class" = each.value.annotations.loadBalancer_and_class
     }
   }
 }
