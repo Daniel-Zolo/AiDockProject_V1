@@ -3,7 +3,7 @@
 ### feel free to change anything and to implement any function or method  ###
 #############################################################################
 
-resource "kubernetes_namespace" "app" {
+resource "kubernetes_namespace" "var.appName" {
   for_each = var.apps
   metadata {
     name = each.value.appName
@@ -13,7 +13,7 @@ resource "kubernetes_namespace" "app" {
       owner = each.value.labels.owner
     }
     annotations = {
-      "serviceClass"           = each.value.annotations.serviceClass
+      "serviceClass"       = each.value.annotations.serviceClass
       "loadBalancer_and_class" = each.value.annotations.loadBalancer_and_class
     }
   }
