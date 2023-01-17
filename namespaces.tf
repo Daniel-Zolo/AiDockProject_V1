@@ -3,7 +3,7 @@
 ### feel free to change anything and to implement any function or method  ###
 #############################################################################
 
-resource "kubernetes_namespace" "var.appName" {
+resource "kubernetes_namespace" "apps" {
   for_each = var.apps
   metadata {
     name = each.value.appName
